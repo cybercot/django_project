@@ -11,7 +11,7 @@ from datetime import datetime
 def index(request):
     context = RequestContext(request)
 
-    category_list = Category.objects.all()
+    category_list = Category.objects.order_by('-likes')[:5]
     context_dict = {'categories': category_list}
 
     for category in category_list:
@@ -219,10 +219,11 @@ def register(request):
     # Render the template depending on the context.
     return render_to_response(
             'rango/register.html',
-            {'user_form': user_form, 'profile_form': profile_form, 'registered': registered},
+            {'user_form': user_form, 'profile_form': profile_form, 'registered': registered,},
             context)
 
 def user_login(request):
+    bad_details=False
     # Like before, obtain the context for the user's request.
     context = RequestContext(request)
 
@@ -252,8 +253,8 @@ def user_login(request):
                 return HttpResponse("Your Rango account is disabled.")
         else:
             # Bad login details were provided. So we can't log the user in.
-            print "Invalid login details: {0}, {1}".format(username, password)
-            return HttpResponse("Invalid login details supplied.")
+            bad_details=True
+            return render_to_response('rango/login.html', {'bad_details':bad_details}, context)
 
     # The request is not a HTTP POST, so display the login form.
     # This scenario would most likely be a HTTP GET.
