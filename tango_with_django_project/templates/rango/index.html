@@ -1,10 +1,11 @@
-{% extends 'rango/base.html' %}
+{% extends "rango/base.html" %}
 
-{% block title %}Home{% endblock %}
+{% block title %}Welcome to Rango!{% endblock %}
 
 {% block body_block %}
 <div class="hero-unit">
     <h1>Ready to Rango</h1>
+
     <p>Find, Add, Share and Rango useful links and resources.</p>
 </div>
 
@@ -28,7 +29,7 @@
         {% if pages %}
         <ul>
             {% for page in pages %}
-            <li><a href="{{ page.url}}">{{ page.title }}</a> - {{ page.category }} ({{ page.views }} view(s))</li>
+            <li><a href="{{ page.url}}">{{ page.title }}</a> - {{ page.category}} ({{ page.views }} view(s))</li>
             {% endfor %}
         </ul>
         {% else %}
@@ -37,6 +38,8 @@
 
     </div>
     <!--/span-->
-</div>
-<!--/row-->
+</div><!--/row-->
+
+
 {% endblock %}
+

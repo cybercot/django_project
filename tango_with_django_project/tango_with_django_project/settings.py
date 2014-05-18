@@ -1,12 +1,22 @@
 # Django settings for tango_with_django_project project.
-import os
-SETTINGS_DIR=os.path.dirname(__file__)
-PROJECT_PATH=os.path.join(SETTINGS_DIR,os.pardir)
-PROJECT_PATH=os.path.abspath(PROJECT_PATH)
-TEMPLATE_PATH=os.path.join(PROJECT_PATH,'templates')
 
-STATIC_PATH = os.path.join(PROJECT_PATH,'static')
+# Import the OS module and work out our project's paths
+import os
+SETTINGS_DIR = os.path.dirname(__file__)
+
+PROJECT_PATH = os.path.join(SETTINGS_DIR, os.pardir)
+PROJECT_PATH = os.path.abspath(PROJECT_PATH)
+
+TEMPLATE_PATH = os.path.join(PROJECT_PATH, 'templates')
+STATIC_PATH = os.path.join(PROJECT_PATH, 'static')
 DATABASE_PATH = os.path.join(PROJECT_PATH, 'rango.db')
+
+# Printing paths for sanity's sake
+print "Settings directory:", SETTINGS_DIR
+print "Project root:", PROJECT_PATH
+print "Templates:", TEMPLATE_PATH
+print "Static:", STATIC_PATH
+print "DB:", DATABASE_PATH
 
 LOGIN_URL = '/rango/login/'
 
@@ -21,13 +31,8 @@ MANAGERS = ADMINS
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': DATABASE_PATH,                      # Or path to database file if using sqlite3.
-        # The following settings are not used with sqlite3:
-        'USER': '',
-        'PASSWORD': '',
-        'HOST': '',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
-        'PORT': '',                      # Set to empty string for default.
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': DATABASE_PATH,
     }
 }
 
@@ -60,7 +65,7 @@ USE_TZ = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/var/www/example.com/media/"
-MEDIA_ROOT = os.path.join(PROJECT_PATH,'media')
+MEDIA_ROOT = os.path.join(PROJECT_PATH, 'media')
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
@@ -94,7 +99,7 @@ STATICFILES_FINDERS = (
 )
 
 # Make this unique, and don't share it with anybody.
-SECRET_KEY = 'k*ykyihc@t*q1*402&2z9)a02e_f(5ov(t(@ocvcd!0(=t6rpx'
+SECRET_KEY = 'lzcpau%1br-$31x@ur+1@*uknf%((@qlb008_0oxo&kur&_92e'
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
