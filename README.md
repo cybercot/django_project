@@ -7,8 +7,7 @@ In Spanish, the word rango is used to mean “a league ranked by quality” or �
 
 For the main page of the site, visitors able to see:
 the 5 most viewed pages;
-the five most rango’ed categories; and
-some way for visitors to browse or search through categories.
+the five most rango’ed categories; and some way for visitors to browse or search through categories.
 When a user views a category page, they would like it to display:
 the category name, the number of visits, the number of likes;
 along with the list of associated pages in that category (showing the page’s title and linking to its url); and.
